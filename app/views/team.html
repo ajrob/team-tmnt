@@ -1,7 +1,12 @@
 <h1>The {{team.name}}:</h1>
 <h3>Team Members:</h3>
 <ul>
-	<li ng-repeat="character in team.characters"><a ng-bind="character.name" ui-sref=".character({charId: character.id})"></a></li>
+	<li ng-repeat="character in team.characters">
+		<a ui-sref=".character({charId: character.id})" dv-color="gold">
+			<dv-append text="{{character.name}}" append=" is a filthy animal"></dv-append>
+		</a>
+	</li>
 </ul>
+<div dv-table="team.characters" dv-table-headers="['id', 'name']"></div>
 <div ui-view></div>
 <button class='btn btn-primary' ui-sref='main'>Home</button>
