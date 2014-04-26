@@ -5,7 +5,7 @@ angular.module('teamTmntApp')
     return {
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
-        element.css('color', attrs.dvColor);
+        element.css('color', attrs.dvColor);	
       }
     };
   });
