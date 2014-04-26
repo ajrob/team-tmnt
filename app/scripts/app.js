@@ -7,7 +7,12 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 		.state('main', {
 			url: '/',
 			templateUrl: 'views/main.html',
-			controller: 'MainCtrl'			
+			controller: 'MainCtrl',
+			resolve: {
+				teams: function(Turtle){
+					return Turtle.getTeams();
+				}
+			}		
 		})
 		.state('team', {
 			url: '/team/:teamId',
@@ -18,5 +23,15 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 					return Turtle.getTeam($stateParams.teamId);
 				}
 			}
-		});
+		})
+			.state('team.character', {
+				url: '/character/:charId',
+				templateUrl: 'views/team.character.html',
+				controller: 'CharacterCtrl',
+				resolve: {
+					character: function($stateParams, Turtle){
+						return Turtle.getCharacter($stateParams.charId);
+					}
+				}
+			});
 });

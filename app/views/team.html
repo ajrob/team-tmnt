@@ -1,6 +1,7 @@
 <h1>The {{team.name}}:</h1>
 <h3>Team Members:</h3>
 <ul>
-	<li ng-repeat="character in team.characters">{{character.name}}</li>
+	<li ng-repeat="character in team.characters"><a ng-bind="character.name" ui-sref=".character({charId: character.id})"></a></li>
 </ul>
+<div ui-view></div>
 <button class='btn btn-primary' ui-sref='main'>Home</button>

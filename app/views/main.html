@@ -1,1 +1,9 @@
 <h1>TMNT</h1>
+<div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li ng-repeat="team in teams"><a ng-bind="team.name" ui-sref="team({teamId: team.id})"></a></li>
+    </ul>
+  </div>
+</div>
+<!-- <div ui-view></div> -->
